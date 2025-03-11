@@ -227,7 +227,7 @@ function displayAddedMerchant(merchant) {
 }
 
 function displayMerchantItems(event) {
-  let merchantId = event.target.closest("article").id.split('-')[1]
+  let merchantId = event.target.closest("article").id.split('-')[1] // Utilizing merchantId to hide button when navigating away from the webpage
   const filteredMerchantItems = filterByMerchant(merchantId)
   showMerchantItemsView(merchantId, filteredMerchantItems)
 }
@@ -236,21 +236,35 @@ function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
   console.log("Merchant ID:", merchantId)
 
-  fetchData(`merchants/${merchantId}`)
+  fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
     console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData);
+    displayMerchantCoupons(couponData.data, merchantId); // This is how I displayed merchantId number
+    // Here we are showing correct data
   })
 }
 
-function displayMerchantCoupons(coupons) {
+function displayMerchantCoupons(coupons, merchantId) { // Look at line 230
   show([couponsView])
   hide([merchantsView, itemsView])
 
+  showingText.textContent = `Showing: All Coupons for Merchant #${merchantId}`
+  addNewButton.classList.add("hidden")
+
   couponsView.innerHTML = `
-    <p>Coupon data will go here.</p>
+        <h2>Coupons</h2>
+    <div class="coupon-list"> 
+      ${coupons.map(coupon => ` 
+        <div class="coupon">
+          <p><strong>${coupon.attributes.name}</strong></p>
+          <p>Code: ${coupon.attributes.code}</p>
+          <p>Discount: ${coupon.attributes.discount_value} ${coupon.attributes.discount_type === 'percent_off' ? '%' : '$'}</p>
+          <p>Status: ${coupon.attributes.active ? 'Active' : 'Inactive'}</p>
+        </div>
+      `).join('')}
+    </div>
   `
-}
+} // Displays the coupon attributes
 
 //Helper Functions
 function show(elements) {

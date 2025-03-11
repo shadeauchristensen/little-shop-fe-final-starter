@@ -196,6 +196,27 @@ h3 {
   color: var(--red);
 }
 
+.coupon {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#coupons-view h2 {
+  padding-bottom: 20px;
+}
+
+.coupon:hover,
+.item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
 /* STATUS MESSAGES */
 .success {
   color: var(--green);
