@@ -33,6 +33,14 @@ submitMerchantButton.addEventListener('click', (event) => {
   submitMerchant(event)
 })
 
+document.addEventListener("click", (event) => {
+  if (event.target.id === "view-active-coupons") {
+      filterActiveCoupons();
+  } else if (event.target.id === "view-all-coupons") {
+      resetCouponView();
+  }
+})
+
 //Global variables
 let merchants;
 let items;
@@ -253,6 +261,8 @@ function displayMerchantCoupons(coupons, merchantId) { // Look at line 230
 
   couponsView.innerHTML = `
         <h2>Coupons</h2>
+          <button id="view-active-coupons">View Active Coupons</button>
+          <button id="view-all-coupons" class="hidden">View All Coupons</button>
     <div class="coupon-list"> 
       ${coupons.map(coupon => ` 
         <div class="coupon">
@@ -267,6 +277,14 @@ function displayMerchantCoupons(coupons, merchantId) { // Look at line 230
 } // Displays the coupon attributes
 
 //Helper Functions
+function filterActiveCoupons() {
+  const activeCoupons = currentCoupons.filter(coupon => coupon.attributes.active);
+  displayMerchantCoupons(activeCoupons, currentMerchantId)
+  document.getElementById("view-active-coupons").classList.add("hidden")
+  document.getElementById("view-all-coupons").classList.remove("hidden")
+}
+
+
 function show(elements) {
   elements.forEach(element => {
     element.classList.remove('hidden')
