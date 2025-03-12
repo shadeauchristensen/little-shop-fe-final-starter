@@ -1,47 +1,61 @@
-# Little Shop - Coupon Codes | Final Project | Frontend Starter Repo
-
-This Vite Little Shop - Coupon Codes FE Final Project Boilerplate is built to consume and display the data from the BE Rails API built in the Mod 2 Final Project.  
-
-## Set Up Instructions
-
-**Note:** Do **not** clone this repo into your backend repo. Put it somewhere else as a stand alone. The BE and FE repos will remain two separate repos and you will submit the links to each.  
-
-1. Fork repo
-1. Clone forked repo and rename it `git clone <repo> <new name>`
-1. `cd` into cloned repo
-1. Run `npm install`
-1. Run `npm run dev` to start developing.
-  1. You'll see in the terminal that the project has opened at "http://localhost:5173/"
-
-## Notes
-
-This FE application is build to consume the data from your Rails API.  In order for it to work, you must have your Rails API running on localhost:3000. You will see fetch errors when running the FE without the BE API up and running.  
-
-Follow the directions in the FE requirements portion of the Little Shop Coupon Codes final project spec. When you are finished with the FE work, update this README to remove the current content and follow the template below.  
-
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
-
-# Hang in There  
-
-Link to your GitHub. Consider also providing LinkedIn link
+# Little Shop - Coupon Codes | Final Project | Starter Repo
 
 ### Abstract:
-(Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-
-### Installation Instructions:
-(What steps does a person have to take to get your app cloned down and running?)
+This project extends the **Little Shop** e-commerce platform by adding a **coupon system**, allowing merchants to create, manage, and apply discount coupons to invoices. Merchants can **activate/deactivate** coupons, and view their usage.
+---
+### Context:
+This project was completed as part of Turing’s Module 2 Final Project, where we had to integrate a new feature into the existing Little Shop application. The project required both backend and frontend development, working with Rails, ActiveRecord, JavaScript, and API requests.
 
 ### Preview of App:
-(Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+<img width="1150" alt="Screenshot 2025-03-11 at 7 09 43 PM" src="https://github.com/user-attachments/assets/9158f982-4131-45fb-b735-bdce1d00bf8b" />
 
-### Context:
-(Give some context for the project here. How long did you have to work on it? What specific work/improvements did you contribute to this FE application?)
+
+
+My Contributions:
+
+🔹 Backend:
+	•	Built out the Coupon model, controllers, and serializers
+	•	Ensured RESTful API design and request testing
+	•	Implemented business logic for coupon activation, deactivation, and validation
+	•	Maintained error handling and database constraints
+
+🔹 Frontend:
+	•	Fetched coupon data from the backend API and rendered it dynamically
+	•	Created UI interactions for filtering active/inactive coupons
+	•	Ensured seamless integration between FE & BE
 
 ### Learning Goals:
-(What were the learning goals of this project? What tech did you work with?)
+
+✅ Strengthen API request handling and debugging
+
+✅ Work with ActiveRecord relationships and serializers
+
+✅ Improve understanding of JavaScript DOM manipulation
+
+✅ Write feature and request tests to ensure coverage
+
+✅ Handle error messages and edge cases gracefully
 
 ### Wins + Challenges:
-(What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+
+| ✅ Wins  | ⚠️ Challenges & Solutions  |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **Successfully linked the frontend & backend APIs** | **SimpleCov Coverage Issues** → Some lines were not being covered due to unnecessary error rescues. Cleaning up the code and ensuring test coverage for edge cases helped.  |
+| **Implemented coupon activation & deactivation with business constraints** | **Frontend State Management** → The `currentCoupons` variable was initially **undefined**, causing filter buttons to break. Defining state variables properly and ensuring data was **fetched and stored correctly** resolved this.  |
+| **Debugged SimpleCov coverage issues, improving test coverage to 98%** | **Time Constraints** → Prioritizing **backend API functionality first**, then focusing on **frontend UI and extensions** helped meet the deadline.  |
+
+
+
+### Installation Instructions(links below)
+
+git clone git@github.com:shadeauchristensen/little-shop-be-final-starter.git
+
+git clone git@github.com:shadeauchristensen/little-shop-fe-final-starter.git
+
+
+### Follow me here
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?logo=github&style=for-the-badge)](https://github.com/shadeauchristensen) - [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/shadeauchristensen/)
+
+</div>
